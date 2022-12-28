@@ -2,6 +2,9 @@
 
     session_start();
 
+    if ( !isset($_SESSION['signup_form_csrf_token'] ) )
+      $_SESSION['signup_form_csrf_token'] = bin2hex( random_bytes(32) );
+
    $database = new PDO(
     'mysql:host=devkinsta_db;dbname=User_Management',
     'root',
